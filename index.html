@@ -67,29 +67,30 @@
 /* ================================================================
    BRAND PALETTE
    ================================================================
-   --orange:  #e26128  Primary accent, CTAs, highlights
-   --ivory:   #f9f1e8  Page background, light surfaces
-   --teal:    #048495  Secondary brand, links, hovers
-   --espresso:#422b1c  Primary text, dark backgrounds
+   --teal:    #048495  Primary brand color, buttons, links, highlights
+   --ivory:   #f9f1e8  Toasted Tofu background, light surfaces
+   --espresso:#382822  Primary text, dark backgrounds
+   --grey:    #e2e6e8  Global Grey borders and secondary sections
+   --orange:  #e4621c  Limited accent, donation highlights, hover moments
    ================================================================ */
 
 :root {
   /* Brand colors */
-  --orange:       #e26128;
-  --orange-dark:  #c4501c;
-  --orange-light: #f07a45;
-  --orange-pale:  #fce8dc;
+  --orange:       #e4621c;
+  --orange-dark:  #c75518;
+  --orange-light: #ef7a3a;
+  --orange-pale:  #fbe6d8;
   --ivory:        #f9f1e8;
-  --ivory-dark:   #ede4d6;
-  --ivory-mid:    #f3ece0;
+  --ivory-dark:   #e2e6e8;
+  --ivory-mid:    #f6efe7;
   --teal:         #048495;
   --teal-dark:    #026977;
   --teal-light:   #1aa3b5;
   --teal-pale:    #d6f0f3;
-  --espresso:     #422b1c;
-  --espresso-mid: #6b4630;
-  --espresso-light:#9a6d52;
-  --espresso-pale: #d4bfb0;
+  --espresso:     #382822;
+  --espresso-mid: #5f4a43;
+  --espresso-light:#8b7770;
+  --espresso-pale: #d8cbc6;
   --white:        #ffffff;
 
   /* Semantic roles */
@@ -98,8 +99,9 @@
   --text:         var(--espresso);
   --text-muted:   var(--espresso-mid);
   --text-faint:   var(--espresso-light);
-  --accent:       var(--orange);
-  --accent-2:     var(--teal);
+  --accent:       var(--teal);
+  --accent-2:     var(--orange);
+  --global-grey:  #e2e6e8;
   --surface:      var(--ivory-dark);
   --surface-dark: rgba(66,43,28,0.06);
 
@@ -196,11 +198,11 @@ button,input,select,textarea { font-family:var(--ff) }
 .btn-arrow:hover span { transform:translateX(5px) }
 
 .btn-orange {
-  background: var(--orange); color: var(--white); border-color: var(--orange);
+  background: var(--teal); color: var(--white); border-color: var(--teal);
 }
 .btn-orange:hover {
-  background: var(--orange-dark); border-color: var(--orange-dark);
-  transform: translateY(-2px); box-shadow: 0 10px 28px rgba(226,97,40,0.4);
+  background: var(--teal-dark); border-color: var(--teal-dark);
+  transform: translateY(-2px); box-shadow: 0 10px 28px rgba(4,132,149,0.35);
 }
 .btn-teal {
   background: var(--teal); color: var(--white); border-color: var(--teal);
@@ -339,13 +341,13 @@ button,input,select,textarea { font-family:var(--ff) }
 #nav.scrolled .nav-links a:hover { color: var(--espresso); background: var(--surface-dark) }
 
 .nav-cta {
-  background: var(--orange) !important;
+  background: var(--teal) !important;
   color: var(--white) !important;
   font-weight: 600 !important;
   padding: 9px 22px !important;
   border-radius: var(--radius) !important;
 }
-.nav-cta:hover { background: var(--orange-dark) !important }
+.nav-cta:hover { background: var(--teal-dark) !important }
 
 /* Hamburger */
 .hamburger {
@@ -749,7 +751,7 @@ button,input,select,textarea { font-family:var(--ff) }
   transition:all 0.25s;
 }
 .res-tab.active,.res-tab:hover {
-  background:var(--orange); border-color:var(--orange); color:var(--white);
+  background:var(--teal); border-color:var(--teal); color:var(--white);
 }
 
 .res-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
@@ -1181,6 +1183,13 @@ footer { background:var(--espresso); padding:80px 0 0 }
 .f-legal a { font-size:12px; color:rgba(249,241,232,0.25); transition:color 0.2s }
 .f-legal a:hover { color:var(--orange-light) }
 
+
+/* Subtle olive-branch inspired foundation texture */
+#about, #donate, #camp {
+  background-image: radial-gradient(ellipse at 10% 20%, rgba(4,132,149,0.045) 0 1px, transparent 2px), radial-gradient(ellipse at 90% 80%, rgba(56,40,34,0.035) 0 1px, transparent 2px);
+  background-size: 34px 34px, 42px 42px;
+}
+
 /* ================================================================
    RESPONSIVE
    ================================================================ */
@@ -1245,21 +1254,20 @@ footer { background:var(--espresso); padding:80px 0 0 }
       <div class="container">
         <div class="nav-inner">
           <a href="#hero" class="nav-logo">
-            <a href="#hero" class="nav-logo">
-              <div class="nav-logo-mark">
-                <img src="go-outside-logo.png" alt="Go Outside Foundation Logo" class="nav-logo-img">
-              </div>
-              <div class="nav-logo-text">
-                Go Outside Foundation
-                <span class="nav-logo-sub">Explore · Grow · Lead</span>
-              </div>
-            </a>
+            <div class="nav-logo-mark">
+              <img src="go-outside-logo.png" alt="Go Outside Foundation Logo" class="nav-logo-img">
+            </div>
+            <div class="nav-logo-text">
+              Go Outside Foundation
+              <span class="nav-logo-sub">Educate · Explore · Elevate</span>
+            </div>
+          </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#programs">Programs</a></li>
         <li><a href="#resources">Resources</a></li>
-        <li><a href="#gallery">Stories</a></li>
-        <li><a href="#camp">Go Mode Camp</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#footer-contact">Contact</a></li>
         <li><a href="#donate" class="nav-cta">Donate</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -1274,8 +1282,8 @@ footer { background:var(--espresso); padding:80px 0 0 }
   <a href="#about">About Us</a>
   <a href="#programs">Programs</a>
   <a href="#resources">Resources</a>
-  <a href="#gallery">Stories</a>
-  <a href="#camp">Go Mode Camp</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#footer-contact">Contact</a>
   <a href="#donate" class="m-cta">Donate Now</a>
 </div>
 
@@ -1292,18 +1300,20 @@ footer { background:var(--espresso); padding:80px 0 0 }
 
   <div class="container hero-inner">
     <div class="hero-content">
-      <div class="hero-eyebrow">Chicago Youth Empowerment Foundation</div>
+      <div class="hero-eyebrow">Chicago Youth Enrichment Foundation</div>
       <h1 class="hero-headline">
-        The World<br/>
-        Is <span class="accent-orange">Waiting</span><br/>
-        For <span class="accent-teal">Them</span>
+        You’re<br/>
+        <span class="accent-teal">Going</span><br/>
+        <span class="accent-orange">Places!</span>
       </h1>
       <p class="hero-sub">
-        Go Outside Foundation empowers young people through educational tourism, cultural exploration, and transformative leadership development — building a generation ready to shape their communities and the world.
+        GO Foundation empowers youth and teens to explore the world around them — beyond home and school.<br/><br/>
+        We connect students to memorable, structured experiences through higher education exposure, wellness, civic engagement, travel, arts and culture, and career exploration.
       </p>
       <div class="hero-ctas">
+        <a href="#about" class="btn btn-outline-ivory">About Us</a>
         <a href="#programs" class="btn btn-orange btn-arrow">Explore Programs <span>→</span></a>
-        <a href="#donate" class="btn btn-outline-ivory">Donate Now</a>
+        <a href="https://www.zeffy.com/" target="_blank" rel="noopener" class="btn btn-outline-ivory">Donate via Zeffy</a>
       </div>
     </div>
   </div>
@@ -1358,10 +1368,10 @@ footer { background:var(--espresso); padding:80px 0 0 }
           We don't just<br/>open doors —<br/>we move the walls
         </h2>
         <p class="about-body">
-          At Go Outside Foundation, we believe exploration isn't a luxury — it's a right. Every young person, regardless of zip code, deserves access to the experiences that unlock ambition, empathy, and confidence that only comes from seeing the world with fresh eyes.
+          Go Outside Foundation empowers Chicago teen youth to explore the world around them — beyond home and school. Through structured experiences rooted in higher education and career exposure, wellness, arts and culture, civic engagement, volunteerism, and travel, GOF encourages youth to grow into globally minded leaders and engaged community members.
         </p>
         <p class="about-body">
-          Our leadership team and board bring experience, passion, and dedication to ensuring GOF remains a trusted partner for schools, parents, and community leaders across Chicago and beyond.
+          We envision a future where Chicago youth feel empowered, engaged, and encouraged to explore not only the world around them locally, but globally — creating core memories and exposure opportunities that elevate local youth toward global reach.
         </p>
 
         <div class="about-stats">
@@ -1370,12 +1380,12 @@ footer { background:var(--espresso); padding:80px 0 0 }
             <div class="a-stat-label">Youth Served</div>
           </div>
           <div class="a-stat">
-            <div class="a-stat-num">5</div>
-            <div class="a-stat-label">Core Programs</div>
+            <div class="a-stat-num">2</div>
+            <div class="a-stat-label">Primary Programs</div>
           </div>
           <div class="a-stat">
-            <div class="a-stat-num">15+</div>
-            <div class="a-stat-label">Cities Explored</div>
+            <div class="a-stat-num">501c3</div>
+            <div class="a-stat-label">Nonprofit Organization</div>
           </div>
         </div>
         <a href="#programs" class="btn btn-outline-espresso btn-arrow">Our Programs <span>→</span></a>
@@ -1396,34 +1406,34 @@ footer { background:var(--espresso); padding:80px 0 0 }
     </div>
     <div class="pillars-grid sr" style="transition-delay:.12s">
       <div class="pillar">
-        <div class="pillar-em">🧭</div>
-        <div class="pillar-name">Exploration</div>
-        <div class="pillar-desc">Opening paths to places and possibilities previously unimagined</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-em">📚</div>
-        <div class="pillar-name">Education</div>
-        <div class="pillar-desc">Learning that lives beyond the classroom and lasts a lifetime</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-em">🏅</div>
-        <div class="pillar-name">Leadership</div>
-        <div class="pillar-desc">Cultivating the voice, vision, and courage to lead</div>
+        <div class="pillar-em">🎓</div>
+        <div class="pillar-name">Higher Education</div>
+        <div class="pillar-desc">Opening paths to college, career, and future-ready opportunity</div>
       </div>
       <div class="pillar">
         <div class="pillar-em">💪</div>
         <div class="pillar-name">Wellness</div>
-        <div class="pillar-desc">Physical, mental, and emotional health as the base of potential</div>
+        <div class="pillar-desc">Building physical, mental, and emotional strength for growth</div>
       </div>
       <div class="pillar">
-        <div class="pillar-em">🏘️</div>
-        <div class="pillar-name">Community</div>
-        <div class="pillar-desc">Rooted in Chicago, expanding outward with intention</div>
+        <div class="pillar-em">🤝</div>
+        <div class="pillar-name">Civic Engagement</div>
+        <div class="pillar-desc">Connecting youth to service, volunteerism, and community voice</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-em">🎭</div>
+        <div class="pillar-name">Arts & Culture</div>
+        <div class="pillar-desc">Creating exposure to creativity, identity, and cultural experiences</div>
       </div>
       <div class="pillar">
         <div class="pillar-em">🌍</div>
-        <div class="pillar-name">Global Citizenship</div>
-        <div class="pillar-desc">Seeing the world as home and taking responsibility for it</div>
+        <div class="pillar-name">Travel</div>
+        <div class="pillar-desc">Expanding local roots into global reach through exploration</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-em">🧭</div>
+        <div class="pillar-name">Exploration</div>
+        <div class="pillar-desc">Helping youth discover the world around them and within them</div>
       </div>
     </div>
   </div>
@@ -1442,53 +1452,52 @@ footer { background:var(--espresso); padding:80px 0 0 }
       </p>
     </div>
     <div class="team-grid">
-      <!-- Edit team cards — replace placeholder emoji with photos and update copy -->
       <div class="team-card sr" style="transition-delay:0s">
         <div class="team-photo tp-1" aria-hidden="true">👤</div>
         <div class="team-body">
-          <div class="team-name">Sidney Vaughn</div>
-          <div class="team-role">Executive Director &amp; Founder</div>
-          <div class="team-bio">A youth advocate with 15+ years in education and community development, Vaughn founded GOF on the belief that exploration is a right, not a privilege.</div>
+          <div class="team-name">Sidney V.</div>
+          <div class="team-role">Executive Director</div>
+          <div class="team-bio">Founder and visionary behind Go Outside Foundation. Sidney leads GOF’s mission to extend opportunities, exposure, and exploration experiences to Chicago teen youth through educational recreation, community partnerships, and youth empowerment initiatives.</div>
         </div>
       </div>
       <div class="team-card sr" style="transition-delay:.07s">
         <div class="team-photo tp-2" aria-hidden="true">👤</div>
         <div class="team-body">
-          <div class="team-name">Simone Archer</div>
-          <div class="team-role">Director of Programs</div>
-          <div class="team-bio">Simone brings expertise in experiential learning and curriculum design, overseeing GOF's five core programs and ensuring each delivers lasting impact.</div>
+          <div class="team-name">Joanna V.</div>
+          <div class="team-role">Treasurer &amp; Board Director</div>
+          <div class="team-bio">Oversees organizational budgeting, financial stewardship, and banking relationships. Joanna also supports community engagement by connecting financial institutions and professionals with GOF initiatives and youth programming.</div>
         </div>
       </div>
       <div class="team-card sr" style="transition-delay:.14s">
         <div class="team-photo tp-3" aria-hidden="true">👤</div>
         <div class="team-body">
-          <div class="team-name">Marcus Webb</div>
-          <div class="team-role">Board Chair</div>
-          <div class="team-bio">A civic strategist and community investment leader, Marcus guides GOF's governance and long-term resource development strategy.</div>
+          <div class="team-name">Rebekah V.</div>
+          <div class="team-role">Secretary &amp; Board Director</div>
+          <div class="team-bio">Supports administrative coordination, volunteer engagement, organizational structure, and board operations. Rebekah contributes to GOF’s community-centered approach through active service and event support.</div>
         </div>
       </div>
       <div class="team-card sr" style="transition-delay:.05s">
         <div class="team-photo tp-4" aria-hidden="true">👤</div>
         <div class="team-body">
-          <div class="team-name">Priya Okonkwo</div>
-          <div class="team-role">Director of Partnerships</div>
-          <div class="team-bio">Priya cultivates GOF's relationships with schools, civic institutions, and community organizations across the Chicago metro and Midwest.</div>
+          <div class="team-name">Brianna G.</div>
+          <div class="team-role">Media &amp; Resources Advisor</div>
+          <div class="team-bio">Supports GOF through media strategy, outreach, educational resource development, and community connections. Brianna also contributes to higher education exposure initiatives and youth opportunity research.</div>
         </div>
       </div>
       <div class="team-card sr" style="transition-delay:.12s">
         <div class="team-photo tp-5" aria-hidden="true">👤</div>
         <div class="team-body">
-          <div class="team-name">Darnell Cooper</div>
-          <div class="team-role">Board — Youth Wellness</div>
-          <div class="team-bio">A certified health and wellness professional leading the strategic direction for GOF's wellness and mental health programming.</div>
+          <div class="team-name">Jameelah M.</div>
+          <div class="team-role">Communications &amp; Relations Advisor</div>
+          <div class="team-bio">Supports relationship-building, communications, outreach coordination, and organizational development. Jameelah contributes to strengthening GOF’s partnerships and community engagement efforts.</div>
         </div>
       </div>
       <div class="team-card sr" style="transition-delay:.19s">
         <div class="team-photo tp-6" aria-hidden="true">👤</div>
         <div class="team-body">
-          <div class="team-name">Amara Diallo</div>
-          <div class="team-role">Board — Global Engagement</div>
-          <div class="team-bio">With a background in international education and cultural diplomacy, Amara champions GOF's global citizenship vision and international programming strategy.</div>
+          <div class="team-name">Kathryn G.</div>
+          <div class="team-role">Travel &amp; Wellness Advisor</div>
+          <div class="team-bio">Supports GOF’s travel exposure and wellness initiatives through transportation coordination, travel partnerships, and youth-centered wellness planning connected to educational exploration experiences.</div>
         </div>
       </div>
     </div>
@@ -1513,37 +1522,19 @@ footer { background:var(--espresso); padding:80px 0 0 }
     <div class="prog-list">
       <div class="prog-item sr" style="transition-delay:0s">
         <div class="prog-num">01</div>
-        <div class="prog-icon-bg">🏫</div>
+        <div class="prog-icon-bg">🌍</div>
         <div>
           <div class="prog-title">The W.A.Y. Club</div>
-          <div class="prog-desc">World Around You Club — on-site experiences at schools with study support, panel discussions, and cultural learning that connects youth to the broader world from where they stand.</div>
+          <div class="prog-desc">World Around You Club — GOF’s flagship youth exploration and enrichment program connecting students to mentorship, educational experiences, wellness activities, civic engagement opportunities, arts and culture, and exposure beyond their immediate environments.</div>
         </div>
         <div class="prog-arrow" aria-hidden="true">→</div>
       </div>
       <div class="prog-item sr" style="transition-delay:.07s">
         <div class="prog-num">02</div>
-        <div class="prog-icon-bg">✈️</div>
+        <div class="prog-icon-bg">💼</div>
         <div>
-          <div class="prog-title">Go Far</div>
-          <div class="prog-desc">Off-site trips introducing youth to local and national travel, tourism, and wellness. From day excursions to multi-day journeys, Go Far expands what feels possible.</div>
-        </div>
-        <div class="prog-arrow" aria-hidden="true">→</div>
-      </div>
-      <div class="prog-item sr" style="transition-delay:.14s">
-        <div class="prog-num">03</div>
-        <div class="prog-icon-bg">🏃</div>
-        <div>
-          <div class="prog-title">Go Outside Moves</div>
-          <div class="prog-desc">Our health and wellness program promoting fitness, mental health, and character building — because strong leaders begin with a strong foundation in all three.</div>
-        </div>
-        <div class="prog-arrow" aria-hidden="true">→</div>
-      </div>
-      <div class="prog-item sr" style="transition-delay:.21s">
-        <div class="prog-num">04</div>
-        <div class="prog-icon-bg">🤝</div>
-        <div>
-          <div class="prog-title">Go Outside Gives</div>
-          <div class="prog-desc">Volunteer and charity initiatives that teach youth the value of service. Through giving, young people discover their own power to transform the communities around them.</div>
+          <div class="prog-title">GO L.E.A.D.</div>
+          <div class="prog-desc">Learn, Earn, Achieve, Develop — GOF’s workforce exposure and youth enrichment initiative focused on leadership, career exposure, community engagement, and preparing youth for future opportunities through practical experience and mentorship.</div>
         </div>
         <div class="prog-arrow" aria-hidden="true">→</div>
       </div>
@@ -1555,9 +1546,9 @@ footer { background:var(--espresso); padding:80px 0 0 }
         <div class="pf-eyebrow">Featured Program</div>
         <div class="pf-title">GO L.E.A.D.</div>
         <p class="pf-desc">
-          Workforce readiness and youth employment programs that equip teens with the skills, confidence, and connections to thrive in today's professional landscape. More than a job — a pathway to purpose.
+          Learn, Earn, Achieve, Develop is GOF’s workforce exposure and youth enrichment initiative focused on leadership, career exposure, community engagement, and preparing youth for future opportunities through practical experience and mentorship.
         </p>
-        <a href="#camp" class="btn btn-orange btn-arrow" style="font-size:12px;padding:13px 24px">Learn More <span>→</span></a>
+        <a href="#camp" class="btn btn-orange btn-arrow" style="font-size:12px;padding:13px 24px">Explore GO L.E.A.D. <span>→</span></a>
       </div>
       <div class="pf-right">
         <div class="pf-stat">
@@ -1600,9 +1591,6 @@ footer { background:var(--espresso); padding:80px 0 0 }
       <button class="res-tab active" data-cat="all">All Resources</button>
       <button class="res-tab" data-cat="crisis">Crisis Support</button>
       <button class="res-tab" data-cat="mental">Mental Health</button>
-      <button class="res-tab" data-cat="housing">Housing &amp; Family</button>
-      <button class="res-tab" data-cat="college">College &amp; Career</button>
-      <button class="res-tab" data-cat="parent">Parent Resources</button>
     </div>
 
     <div class="res-grid">
@@ -1611,66 +1599,44 @@ footer { background:var(--espresso); padding:80px 0 0 }
           <div class="res-icon">🆘</div>
           <div>
             <div class="res-name">988 Suicide &amp; Crisis Lifeline</div>
-            <div class="res-type">Crisis Support</div>
+            <div class="res-type">24/7 Crisis Support</div>
           </div>
         </div>
-        <p class="res-desc">Free, confidential support for anyone in distress. Call or text 988 — available 24/7 nationwide. You don't have to face it alone.</p>
+        <p class="res-desc">A confidential 24/7 hotline for individuals in distress, offering support for those experiencing suicidal thoughts or a mental health crisis. Call or text 988.</p>
         <a href="https://988lifeline.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
       </div>
-      <div class="res-card rc-crisis sr" data-cat="crisis" style="transition-delay:.07s">
+      <div class="res-card rc-mental sr" data-cat="mental" style="transition-delay:.07s">
         <div class="res-top">
-          <div class="res-icon">📲</div>
+          <div class="res-icon">☎️</div>
           <div>
-            <div class="res-name">Crisis Text Line</div>
-            <div class="res-type">Crisis Support</div>
+            <div class="res-name">National Mental Health Hotline</div>
+            <div class="res-type">Mental Health Support</div>
           </div>
         </div>
-        <p class="res-desc">Text HOME to 741741 to connect with a trained crisis counselor. Free, confidential support via text — available around the clock.</p>
-        <a href="https://crisistextline.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
+        <p class="res-desc">Available at (866) 903-3787 for mental health support and guidance when youth, families, or community members need help connecting to resources.</p>
+        <a href="tel:18669033787" class="res-link">Call Hotline →</a>
       </div>
       <div class="res-card rc-mental sr" data-cat="mental" style="transition-delay:.14s">
         <div class="res-top">
           <div class="res-icon">🧠</div>
           <div>
-            <div class="res-name">Open Path Collective</div>
-            <div class="res-type">Counseling &amp; Mental Health</div>
+            <div class="res-name">National Alliance on Mental Illness</div>
+            <div class="res-type">NAMI Helpline</div>
           </div>
         </div>
-        <p class="res-desc">Affordable in-person and online therapy sessions for individuals, couples, and families navigating life's challenges.</p>
-        <a href="https://openpathcollective.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
+        <p class="res-desc">Mental health education, advocacy, and support through NAMI. Call 1-800-950-NAMI (1-800-950-6264) for support and information.</p>
+        <a href="https://www.nami.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
       </div>
-      <div class="res-card rc-housing sr" data-cat="housing" style="transition-delay:.04s">
+      <div class="res-card rc-crisis sr" data-cat="crisis" style="transition-delay:.21s">
         <div class="res-top">
-          <div class="res-icon">🏠</div>
+          <div class="res-icon">📲</div>
           <div>
-            <div class="res-name">Chicago Housing Authority</div>
-            <div class="res-type">Housing &amp; Family Support</div>
+            <div class="res-name">Crisis Text Line</div>
+            <div class="res-type">Text-Based Crisis Support</div>
           </div>
         </div>
-        <p class="res-desc">Stable, affordable housing options and wraparound family support services for Chicago residents in need.</p>
-        <a href="https://thecha.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
-      </div>
-      <div class="res-card rc-college sr" data-cat="college" style="transition-delay:.11s">
-        <div class="res-top">
-          <div class="res-icon">🎓</div>
-          <div>
-            <div class="res-name">College Greenlight</div>
-            <div class="res-type">College &amp; Career Readiness</div>
-          </div>
-        </div>
-        <p class="res-desc">Scholarship and financial aid search tools built specifically for first-generation and underrepresented college students.</p>
-        <a href="https://collegegreenlight.com" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
-      </div>
-      <div class="res-card rc-parent sr" data-cat="parent" style="transition-delay:.18s">
-        <div class="res-top">
-          <div class="res-icon">👨‍👩‍👧</div>
-          <div>
-            <div class="res-name">Parents as Teachers</div>
-            <div class="res-type">Parent &amp; Family Resources</div>
-          </div>
-        </div>
-        <p class="res-desc">Programs and resources supporting parents in their most important role — as their child's first and most influential teacher.</p>
-        <a href="https://parentsasteachers.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
+        <p class="res-desc">Free, 24/7 text support for people in crisis, especially useful for young people who may feel more comfortable reaching out by text. Text HOME to 741741.</p>
+        <a href="https://crisistextline.org" target="_blank" rel="noopener" class="res-link">Visit Resource →</a>
       </div>
     </div>
   </div>
@@ -1689,24 +1655,32 @@ footer { background:var(--espresso); padding:80px 0 0 }
           Every dollar<br/>opens a door<br/>for a young<br/>explorer
         </h2>
         <p class="donate-desc sr sl" style="transition-delay:.1s">
-          Your contribution directly fuels exploration, discovery, and growth for Chicago's next generation. From materials to first passports — every gift is elevation through education made real.
+          Your contribution directly fuels exploration, discovery, and growth for Chicago’s next generation. Through Zeffy, your gift helps fund transportation, cultural experiences, higher education exposure, passport support, and youth exploration cohorts.
         </p>
         <div class="amounts sr sl" style="transition-delay:.15s" role="group" aria-label="Select donation amount">
-          <button class="amount-btn" data-amt="25" aria-pressed="false">
-            <div class="amount-num">$25</div>
-            <div class="amount-text">Materials and outreach for one youth participant</div>
-          </button>
           <button class="amount-btn" data-amt="50" aria-pressed="false">
             <div class="amount-num">$50</div>
-            <div class="amount-text">Sponsors a local educational field trip experience</div>
+            <div class="amount-text">Transit Support to/from Experiences</div>
+          </button>
+          <button class="amount-btn" data-amt="75" aria-pressed="false">
+            <div class="amount-num">$75</div>
+            <div class="amount-text">Museum &amp; Cultural Experience</div>
           </button>
           <button class="amount-btn selected" data-amt="100" aria-pressed="true">
             <div class="amount-num">$100</div>
-            <div class="amount-text">Supports a teen's first out-of-state travel experience</div>
+            <div class="amount-text">Illinois HigherEd Exposure Trip</div>
           </button>
-          <button class="amount-btn" data-amt="175" aria-pressed="false">
-            <div class="amount-num">$150–175</div>
-            <div class="amount-text">Covers a teen's first passport application fees</div>
+          <button class="amount-btn" data-amt="250" aria-pressed="false">
+            <div class="amount-num">$250</div>
+            <div class="amount-text">Passport Assistance Sponsorship</div>
+          </button>
+          <button class="amount-btn" data-amt="500" aria-pressed="false">
+            <div class="amount-num">$500</div>
+            <div class="amount-text">Educational Travel Support</div>
+          </button>
+          <button class="amount-btn" data-amt="1000" aria-pressed="false">
+            <div class="amount-num">$1,000</div>
+            <div class="amount-text">Sponsor a Youth Exploration Cohort</div>
           </button>
         </div>
         <div class="donate-impact sr sl" style="transition-delay:.2s">
@@ -1715,8 +1689,8 @@ footer { background:var(--espresso); padding:80px 0 0 }
             <div class="di-label">Funds Programs</div>
           </div>
           <div class="di-stat">
-            <div class="di-num">501c3</div>
-            <div class="di-label">Tax-Exempt</div>
+            <div class="di-num">501(c)(3)</div>
+            <div class="di-label">FEIN 99-1542400</div>
           </div>
           <div class="di-stat">
             <div class="di-num">500+</div>
@@ -1740,10 +1714,12 @@ footer { background:var(--espresso); padding:80px 0 0 }
         <div class="fg">
           <label for="d-amt">Donation Amount</label>
           <select id="d-amt">
-            <option value="25">$25 — Materials &amp; Outreach</option>
-            <option value="50">$50 — Local Field Trip</option>
-            <option value="100" selected>$100 — Out-of-State Travel</option>
-            <option value="175">$150–$175 — First Passport</option>
+            <option value="50">$50 — Transit Support to/from Experiences</option>
+            <option value="75">$75 — Museum &amp; Cultural Experience</option>
+            <option value="100" selected>$100 — Illinois HigherEd Exposure Trip</option>
+            <option value="250">$250 — Passport Assistance Sponsorship</option>
+            <option value="500">$500 — Educational Travel Support</option>
+            <option value="1000">$1,000 — Sponsor a Youth Exploration Cohort</option>
             <option value="other">Other Amount</option>
           </select>
         </div>
@@ -1751,8 +1727,8 @@ footer { background:var(--espresso); padding:80px 0 0 }
           <div class="toggle-sw" id="monthly-sw"></div>
           <span>Make this a monthly gift and amplify your impact</span>
         </div>
-        <button class="donate-submit" type="button">Donate Now →</button>
-        <div class="secure-note">🔒 Secure · Tax-deductible per IRS guidelines</div>
+        <a class="donate-submit" href="https://www.zeffy.com/" target="_blank" rel="noopener" style="display:block;text-align:center">Donate via Zeffy →</a>
+        <div class="secure-note">🔒 Secure via Zeffy · Tax-deductible per IRS guidelines</div>
       </div>
     </div>
   </div>
@@ -1995,7 +1971,7 @@ footer { background:var(--espresso); padding:80px 0 0 }
           <div class="f-mark">🌿</div>
           <div>
             <div class="f-name">Go Outside Foundation</div>
-            <div class="f-sub">Explore · Grow · Lead</div>
+            <div class="f-sub">Educate · Explore · Elevate</div>
           </div>
         </div>
         <p class="f-mission">
@@ -2003,7 +1979,7 @@ footer { background:var(--espresso); padding:80px 0 0 }
         </p>
         <div class="f-socials" aria-label="Social media links">
           <div class="f-social" tabindex="0" role="link" title="Facebook">f</div>
-          <div class="f-social" tabindex="0" role="link" title="Instagram">📸</div>
+          <a class="f-social" href="https://www.instagram.com/goutside_org/" target="_blank" rel="noopener" title="Instagram">📸</a>
           <div class="f-social" tabindex="0" role="link" title="X/Twitter">𝕏</div>
           <div class="f-social" tabindex="0" role="link" title="LinkedIn">in</div>
           <div class="f-social" tabindex="0" role="link" title="YouTube">▶</div>
@@ -2025,17 +2001,13 @@ footer { background:var(--espresso); padding:80px 0 0 }
         <div class="f-col-title">Programs</div>
         <ul>
           <li><a href="#programs">The W.A.Y. Club</a></li>
-          <li><a href="#programs">Go Far</a></li>
-          <li><a href="#programs">Go Outside Moves</a></li>
-          <li><a href="#programs">Go Outside Gives</a></li>
           <li><a href="#programs">GO L.E.A.D.</a></li>
-          <li><a href="#camp">Go Mode Camp</a></li>
         </ul>
       </div>
       <div class="f-col">
-        <div class="f-col-title">Contact</div>
+        <div class="f-col-title" id="footer-contact">Contact</div>
         <div class="f-contact-item">📍 1130 S Canal St. Chicago, IL 60607 #1575</div>
-        <div class="f-contact-item">📧 svaughn@gooutside.org</div>
+        <div class="f-contact-item">📧 <a href="mailto:svaughn@goutside.org">svaughn@goutside.org</a></div>
         <div class="f-contact-item">📞 (773) 396-2876</div>
         <div class="f-contact-item">🕐 Mon–Fri · 9AM–5PM CST</div>
       </div>
@@ -2043,9 +2015,9 @@ footer { background:var(--espresso); padding:80px 0 0 }
 
     <hr class="hr hr-light"/>
     <div class="footer-bottom">
-      <div class="f-copy">© 2025 Go Outside Foundation. All rights reserved. EIN: XX-XXXXXXX</div>
+      <div class="f-copy">© 2026 Go Outside Foundation. All rights reserved. FEIN: 99-1542400</div>
       <div class="f-legal">
-        <a href="#">Privacy Policy</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
         <a href="#">Terms of Use</a>
         <a href="#">Accessibility</a>
       </div>
